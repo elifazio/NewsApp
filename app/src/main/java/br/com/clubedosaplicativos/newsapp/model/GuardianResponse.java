@@ -17,7 +17,7 @@ public class GuardianResponse {
     private int currentPage;
     private int pages;
     private String orderBy;
-    private ArrayList<NewsEntity> results;
+    private ArrayList<News> results;
 
     public String getStatus() {
         return status;
@@ -83,11 +83,11 @@ public class GuardianResponse {
         this.orderBy = orderBy;
     }
 
-    public ArrayList<NewsEntity> getResults() {
+    public ArrayList<News> getResults() {
         return results;
     }
 
-    public void setResults(ArrayList<NewsEntity> results) {
+    public void setResults(ArrayList<News> results) {
         this.results = results;
     }
 }

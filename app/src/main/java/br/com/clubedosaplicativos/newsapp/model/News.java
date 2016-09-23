@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * Created by elifa on 22/09/2016.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class NewsEntity {
+public class News {
     private String title;
     private String sectionName;
     private String webPublicationDate;

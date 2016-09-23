@@ -1,4 +1,4 @@
-package br.com.clubedosaplicativos.newsapp.Util;
+package br.com.clubedosaplicativos.newsapp.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
