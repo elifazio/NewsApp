@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView style="@style/NewsListItem_TitleTextView" />
+
+    <TextView
+        android:id="@+id/list_item_title"
+        style="@style/NewsListItem_TitleTextViewValue" />
+
+    <TextView style="@style/NewsListItem_SelectNameTextView" />
+
+    <TextView
+        android:id="@+id/list_item_sectionName"
+        style="@style/NewsListItem_SelectNameTextViewValue" />
+
+    <TextView style="@style/NewsListItem_DateTextView" />
+
+    <TextView
+        android:id="@+id/list_item_publish_date"
+        style="@style/NewsListItem_DateTextViewValue" />
+
+    <TextView style="@style/NewsListItem_LinkTextView" />
+
+    <TextView
+        android:id="@+id/list_item_link"
+        style="@style/NewsListItem_LinkTextViewValue" />
+
+
+</LinearLayout>
