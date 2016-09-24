@@ -1,9 +1,12 @@
 package br.com.clubedosaplicativos.newsapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -16,7 +19,7 @@ import com.navercorp.volleyextensions.request.Jackson2Request;
 import java.util.ArrayList;
 
 import br.com.clubedosaplicativos.newsapp.adapter.NewsAdapter;
-import br.com.clubedosaplicativos.newsapp.model.GuardianResponse;
+import br.com.clubedosaplicativos.newsapp.model.GoogleFeedResponse;
 import br.com.clubedosaplicativos.newsapp.model.News;
 import br.com.clubedosaplicativos.newsapp.util.VolleyUtil;
 
@@ -24,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private ListView lvNews;
-    private String url = "https://content.guardianapis.com/search?api-key=426fa373-b826-4fca-8e48-d47514fa6b9b";
+    private String url = "https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=Android";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true);
 
-        Request<GuardianResponse> request = new Jackson2Request<GuardianResponse>(url, GuardianResponse.class, mapper, new Response.Listener<GuardianResponse>() {
+        Request<GoogleFeedResponse> request = new Jackson2Request<GoogleFeedResponse>(url, GoogleFeedResponse.class, new Response.Listener<GoogleFeedResponse>() {
             @Override
-            public void onResponse(GuardianResponse response) {
-                MainActivity.this.createAdapter(response.getResults());
+            public void onResponse(GoogleFeedResponse response) {
+                MainActivity.this.createAdapter(response.getResponseData().getEntries());
             }
         }, new Response.ErrorListener() {
             @Override
@@ -59,5 +62,15 @@ public class MainActivity extends AppCompatActivity {
         NewsAdapter adapter = new NewsAdapter(this, objects);
 
         this.lvNews.setAdapter(adapter);
+        this.lvNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                News newsItem = (News) adapterView.getAdapter().getItem(i);
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(newsItem.getLink()));
+                startActivity(intent);
+            }
+        });
     }
 }

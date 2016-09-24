@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView style="@style/NewsListItem_TitleTextView" />
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/margin_tiny"
+    android:paddingBottom="@dimen/margin_tiny"
+    >
 
     <TextView
         android:id="@+id/list_item_title"
-        style="@style/NewsListItem_TitleTextViewValue" />
-
-    <TextView style="@style/NewsListItem_SelectNameTextView" />
-
-    <TextView
-        android:id="@+id/list_item_sectionName"
-        style="@style/NewsListItem_SelectNameTextViewValue" />
-
-    <TextView style="@style/NewsListItem_DateTextView" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="news title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        />
 
     <TextView
-        android:id="@+id/list_item_publish_date"
-        style="@style/NewsListItem_DateTextViewValue" />
+        android:id="@+id/list_item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="News preview"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/list_item_title"
+         />
 
-    <TextView style="@style/NewsListItem_LinkTextView" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/news_web_url"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/list_item_content"
+        android:id="@+id/news_web_url" />
 
     <TextView
         android:id="@+id/list_item_link"
-        style="@style/NewsListItem_LinkTextViewValue" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="www.somelink.com/news"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_below="@+id/list_item_content"
+        android:layout_toRightOf="@+id/news_web_url"
+        android:layout_toEndOf="@+id/news_web_url"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_small"/>
 
 
-</LinearLayout>
+</RelativeLayout>

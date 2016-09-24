@@ -1,6 +1,5 @@
 package br.com.clubedosaplicativos.newsapp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -9,9 +8,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class News {
     private String title;
-    private String sectionName;
-    private String webPublicationDate;
-    private String webUrl;
+    private String contentSnippet;
+    private String link;
+    private String url;
 
     public String getTitle() {
         return title;
@@ -21,27 +20,27 @@ public class News {
         this.title = title;
     }
 
-    public String getSectionName() {
-        return sectionName;
+    public String getContentSnippet() {
+        return contentSnippet;
     }
 
-    public void setSectionName(String sectionName) {
-        this.sectionName = sectionName;
+    public void setContentSnippet(String contentSnippet) {
+        this.contentSnippet = contentSnippet;
     }
 
-    public String getWebPublicationDate() {
-        return webPublicationDate;
+    public String getLink() {
+        return link;
     }
 
-    public void setWebPublicationDate(String webPublicationDate) {
-        this.webPublicationDate = webPublicationDate;
+    public void setLink(String link) {
+        this.link = link;
     }
 
-    public String getWebUrl() {
-        return webUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

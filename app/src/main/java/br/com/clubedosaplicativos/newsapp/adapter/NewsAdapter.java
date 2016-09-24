@@ -1,6 +1,7 @@
 package br.com.clubedosaplicativos.newsapp.adapter;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,17 +31,15 @@ public class NewsAdapter extends ArrayAdapter<News> {
             convertView = LayoutInflater.from(this.getContext()).inflate(this.mResource, null);
         }
 
-        TextView listitemlink = (TextView) convertView.findViewById(R.id.list_item_link);
-        TextView listitempublishdate = (TextView) convertView.findViewById(R.id.list_item_publish_date);
-        TextView listitemsectionName = (TextView) convertView.findViewById(R.id.list_item_sectionName);
-        TextView listitemtitle = (TextView) convertView.findViewById(R.id.list_item_title);
+        TextView listItemTitle = (TextView) convertView.findViewById(R.id.list_item_title);
+        TextView listItemContent = (TextView) convertView.findViewById(R.id.list_item_content);
+        TextView listItemLink = (TextView) convertView.findViewById(R.id.list_item_link);
 
         News newsItem = this.getItem(position);
 
-        listitemlink.setText(newsItem.getWebUrl());
-        listitempublishdate.setText(newsItem.getWebPublicationDate());
-        listitemsectionName.setText(newsItem.getSectionName());
-        listitemtitle.setText(newsItem.getTitle());
+        listItemTitle.setText(Html.fromHtml(newsItem.getTitle()));
+        listItemContent.setText(Html.fromHtml(newsItem.getContentSnippet()));
+        listItemLink.setText(newsItem.getLink());
 
         return convertView;
     }
