@@ -20,8 +20,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
     private final int mResource;
 
-    public NewsAdapter(Context context, List<News> objects) {
-        super(context, 0, objects);
+    public NewsAdapter(Context context) {
+        super(context, R.layout.news_list_item);
         this.mResource = R.layout.news_list_item;
     }
 
@@ -37,9 +37,9 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         News newsItem = this.getItem(position);
 
-        listItemTitle.setText(Html.fromHtml(newsItem.getTitle()));
-        listItemContent.setText(Html.fromHtml(newsItem.getContentSnippet()));
-        listItemLink.setText(newsItem.getLink());
+        listItemTitle.setText(Html.fromHtml(newsItem.getWebTitle()));
+        listItemContent.setText(Html.fromHtml(newsItem.getTrailText()));
+        listItemLink.setText(newsItem.getShortUrl());
 
         return convertView;
     }

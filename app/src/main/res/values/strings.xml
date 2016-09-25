@@ -2,7 +2,7 @@
     <string name="app_name">Clube dos Aplicativos - News App</string>
     <string name="news_title">Title:</string>
     <string name="news_web_url">URL:</string>
-    <string name="message_no_value">No value</string>
+    <string name="message_no_value">There are no news available at the moment...</string>
     <string name="error_unable_retrieve">Unable to retrieve web page. URL may be invalid.</string>
     <string name="error_without_connection">No network connection available.</string>
 </resources>

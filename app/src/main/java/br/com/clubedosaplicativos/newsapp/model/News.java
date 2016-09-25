@@ -1,46 +1,106 @@
 package br.com.clubedosaplicativos.newsapp.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 /**
  * Created by elifa on 22/09/2016.
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class News {
-    private String title;
-    private String contentSnippet;
-    private String link;
-    private String url;
+    private String id;
+    private String type;
+    private String sectionId;
+    private String sectionName;
+    private String webPublicationDate;
+    private String webTitle;
+    private String webUrl;
+    private String apiUrl;
+    private String isHosted;
+    private String trailText;
+    private String shortUrl;
 
-    public String getTitle() {
-        return title;
+    public String getId() {
+        return id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getContentSnippet() {
-        return contentSnippet;
+    public String getType() {
+        return type;
     }
 
-    public void setContentSnippet(String contentSnippet) {
-        this.contentSnippet = contentSnippet;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getLink() {
-        return link;
+    public String getSectionId() {
+        return sectionId;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setSectionId(String sectionId) {
+        this.sectionId = sectionId;
     }
 
-    public String getUrl() {
-        return url;
+    public String getSectionName() {
+        return sectionName;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setSectionName(String sectionName) {
+        this.sectionName = sectionName;
+    }
+
+    public String getWebPublicationDate() {
+        return webPublicationDate;
+    }
+
+    public void setWebPublicationDate(String webPublicationDate) {
+        this.webPublicationDate = webPublicationDate;
+    }
+
+    public String getWebTitle() {
+        return webTitle;
+    }
+
+    public void setWebTitle(String webTitle) {
+        this.webTitle = webTitle;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
+    public void setWebUrl(String webUrl) {
+        this.webUrl = webUrl;
+    }
+
+    public String getApiUrl() {
+        return apiUrl;
+    }
+
+    public void setApiUrl(String apiUrl) {
+        this.apiUrl = apiUrl;
+    }
+
+    public String getIsHosted() {
+        return isHosted;
+    }
+
+    public void setIsHosted(String isHosted) {
+        this.isHosted = isHosted;
+    }
+
+    public String getTrailText() {
+        return trailText;
+    }
+
+    public void setTrailText(String trailText) {
+        this.trailText = trailText;
+    }
+
+    public String getShortUrl() {
+        return shortUrl;
+    }
+
+    public void setShortUrl(String shortUrl) {
+        this.shortUrl = shortUrl;
     }
 }

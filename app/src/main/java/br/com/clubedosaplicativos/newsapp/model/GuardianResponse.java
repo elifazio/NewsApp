@@ -1,13 +1,11 @@
 package br.com.clubedosaplicativos.newsapp.model;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
-
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by elifa on 22/09/2016.
  */
-@JsonRootName("response")
 public class GuardianResponse {
     private String status;
     private String userTier;
@@ -17,7 +15,7 @@ public class GuardianResponse {
     private int currentPage;
     private int pages;
     private String orderBy;
-    private ArrayList<News> results;
+    private List<News> results;
 
     public String getStatus() {
         return status;
@@ -83,11 +81,11 @@ public class GuardianResponse {
         this.orderBy = orderBy;
     }
 
-    public ArrayList<News> getResults() {
+    public List<News> getResults() {
         return results;
     }
 
-    public void setResults(ArrayList<News> results) {
+    public void setResults(List<News> results) {
         this.results = results;
     }
 }
