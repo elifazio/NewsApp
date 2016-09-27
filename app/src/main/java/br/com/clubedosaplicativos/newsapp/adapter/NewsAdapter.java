@@ -27,20 +27,30 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
         if (convertView == null) {
             convertView = LayoutInflater.from(this.getContext()).inflate(this.mResource, null);
-        }
+            holder = new ViewHolder();
 
-        TextView listItemTitle = (TextView) convertView.findViewById(R.id.list_item_title);
-        TextView listItemContent = (TextView) convertView.findViewById(R.id.list_item_content);
-        TextView listItemLink = (TextView) convertView.findViewById(R.id.list_item_link);
+            holder.listItemTitle = (TextView) convertView.findViewById(R.id.list_item_title);
+            holder.listItemContent = (TextView) convertView.findViewById(R.id.list_item_content);
+            holder.listItemLink = (TextView) convertView.findViewById(R.id.list_item_link);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
         News newsItem = this.getItem(position);
 
-        listItemTitle.setText(Html.fromHtml(newsItem.getWebTitle()));
-        listItemContent.setText(Html.fromHtml(newsItem.getTrailText()));
-        listItemLink.setText(newsItem.getShortUrl());
+        holder.listItemTitle.setText(Html.fromHtml(newsItem.getWebTitle()));
+        holder.listItemContent.setText(Html.fromHtml(newsItem.getTrailText()));
+        holder.listItemLink.setText(newsItem.getShortUrl());
 
         return convertView;
+    }
+
+    static class ViewHolder {
+        TextView listItemTitle;
+        TextView listItemContent;
+        TextView listItemLink;
     }
 }
